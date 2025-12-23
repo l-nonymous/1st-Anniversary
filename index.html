@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light & Nadnad's Story💕🌿</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Poppins:wght@300;400;600;700&display=swap');
+         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+         
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a8e6cf, #b8f2e6, #d1f2eb);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+         
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+         
+        /* Floating hearts & flowers */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+         
+        .particle {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: floatParticles 20s infinite linear;
+        }
+         
+        @keyframes floatParticles {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* WELCOME SCREEN ENHANCEMENTS */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a8e6cf, #b8f2e6, #d1f2eb);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 2000;
+            opacity: 1;
+            visibility: visible;
+            transition: all 0.8s ease;
+            overflow: hidden;
+        }
+         
+        .welcome-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Welcome Screen Floating Emojis */
+        .welcome-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2001;
+        }
+
+        .welcome-particle {
+            position: absolute;
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            animation: welcomeFloat 25s infinite linear;
+            opacity: 0.7;
+        }
+
+        @keyframes welcomeFloat {
+            0% { 
+                transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.8); 
+                opacity: 0; 
+            }
+            10% { 
+                opacity: 0.7; 
+                transform: translateY(90vh) translateX(5%) rotate(90deg) scale(1);
+            }
+            50% { 
+                opacity: 0.9; 
+                transform: translateY(50vh) translateX(-3%) rotate(360deg) scale(1.1);
+            }
+            90% { 
+                opacity: 0.7; 
+                transform: translateY(10vh) translateX(8%) rotate(720deg) scale(0.9);
+            }
+            100% { 
+                transform: translateY(-50px) translateX(-2%) rotate(900deg) scale(0.8); 
+                opacity: 0; 
+            }
+        }
+
+        /* Subtle Fireworks */
+        .welcome-fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2002;
+        }
+
+        .firework {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #ffd700, #ff6b9d, #a8e6cf);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fireworkBurst 6s infinite ease-out;
+        }
+
+        @keyframes fireworkBurst {
+            0% {
+                opacity: 0;
+                transform: scale(0) translateY(0);
+            }
+            8% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(4) translateY(-25vh);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(8) translateY(-50vh);
+            }
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            background: linear-gradient(45deg, #ff6b9d, #ffffff, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            animation: welcomeGlow 2s ease-in-out infinite alternate;
+            z-index: 2003;
+            position: relative;
+        }
+         
+        @keyframes welcomeGlow {
+            from { filter: drop-shadow(0 0 20px rgba(255,107,157,0.7)); }
+            to { filter: drop-shadow(0 0 40px rgba(168,230,207,0.8)); }
+        }
+         
+        .welcome-music-note {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+            z-index: 2003;
+            position: relative;
+        }
+         
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+         
+        .welcome-message {
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            z-index: 2003;
+            position: relative;
+        }
+         
+        .play-music-btn {
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            color: white;
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 20px 50px rgba(255,107,157,0.6);
+            transition: all 0.4s ease;
+            font-family: 'Poppins', sans-serif;
+            z-index: 2003;
+            position: relative;
+        }
+         
+        .play-music-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 30px 70px rgba(168,230,207,0.7);
+        }
+         
+        /* Music Control Button */
+        .music-toggle {
+            position: fixed;
+            top: 90px;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            backdrop-filter: blur(20px);
+        }
+         
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+         
+        .music-toggle.paused {
+            background: rgba(255,255,255,0.2);
+        }
+         
+        .music-toggle.paused::after {
+            content: '⏸️';
+        }
+         
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 0;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(25px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+        }
+         
+        .navbar.gallery-open {
+            padding: 0.5rem 0;
+        }
+         
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+         
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b9d, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+         
+        /* Main Content */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 2rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+         
+        .personal-message {
+            max-width: 900px;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+            animation: fadeInUp 2s ease-out;
+            max-height: 70vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,107,157,0.5) transparent;
+            text-align: justify;
+        }
+         
+        .personal-message::-webkit-scrollbar {
+            width: 6px;
+        }
+         
+        .personal-message::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+         
+        .personal-message::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            border-radius: 10px;
+        }
+         
+        .personal-message h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            background: linear-gradient(45deg, #ff6b9d, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            text-align: left !important;
+        }
+         
+        .personal-message p {
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+            color: rgba(0,0,0,0.9);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+         
+        .your-message {
+            font-style: italic;
+            color: #ff6b9d !important;
+            font-weight: 400;
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+         
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+         
+        .hero {
+            animation: fadeInUp 1.5s ease-out 0.5s both;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+         
+        .hero:hover {
+            transform: scale(1.02);
+        }
+         
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b9d, #ffffff, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 50px rgba(255,107,157,0.5);
+            animation: heroGlow 3s ease-in-out infinite alternate;
+        }
+         
+        @keyframes heroGlow {
+            from { filter: drop-shadow(0 0 20px rgba(255,107,157,0.7)); }
+            to { filter: drop-shadow(0 0 40px rgba(168,230,207,0.8)); }
+        }
+         
+        .hero-subtitle {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+         
+        /* Photo Gallery */
+        .photo-gallery {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding-top: 80px;
+            box-sizing: border-box;
+        }
+         
+        .photo-gallery.active {
+            opacity: 1;
+            visibility: visible;
+        }
+         
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a8e6cf, #b8f2e6, #d1f2eb);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+        }
+         
+        .gallery-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 25;
+            overflow: hidden;
+        }
+         
+        .gallery-particle {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: galleryFloat 15s infinite linear;
+            opacity: 0.8;
+        }
+         
+        @keyframes galleryFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+         
+        .gallery-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 95vw;
+            max-height: calc(95vh - 100px);
+            width: auto;
+            height: auto;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            border: 3px solid rgba(255,255,255,0.4);
+            overflow: hidden;
+            box-shadow: 0 50px 150px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            z-index: 26;
+        }
+         
+        .photo-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 400px;
+            max-height: calc(95vh - 120px);
+        }
+         
+        .photo-image-section {
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a8e6cf, #b8f2e6, #d1f2eb);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+            min-height: 250px;
+            max-height: 60vh;
+            position: relative;
+        }
+         
+        .photo-image {
+            max-width: 100%;
+            max-height: 60vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: none;
+        }
+         
+        .photo-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #ff9a9e, #fecfef, #a8e6cf, #b8f2e6, #d1f2eb);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+            color: white;
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 600;
+            text-align: center;
+            padding: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+         
+        .photo-description {
+            flex-shrink: 0;
+            padding: 2.5rem;
+            background: rgba(255,255,255,0.25);
+            backdrop-filter: blur(20px);
+            border-top: 2px solid rgba(255,255,255,0.6);
+            max-height: 45vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,107,157,0.5) transparent;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+         
+        .photo-description::-webkit-scrollbar {
+            width: 6px;
+        }
+         
+        .photo-description::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+         
+        .photo-description::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            border-radius: 10px;
+        }
+         
+        .photo-description-text {
+            font-size: clamp(1.1rem, 2.8vw, 1.25rem);
+            color: rgba(0,0,0,0.92);
+            font-weight: 300;
+            line-height: 1.75;
+            letter-spacing: 0.3px;
+            text-align: center;
+            max-width: 100%;
+        }
+         
+        .progress-bar {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: clamp(250px, 30vw, 400px);
+            height: 8px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 31;
+        }
+         
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b9d, #a8e6cf);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+         
+        .ending-screen {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(40px);
+            border-radius: 40px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 90%;
+            max-height: calc(80% - 100px);
+            border: 3px solid rgba(255,255,255,0.6);
+            color: rgba(0,0,0,0.9);
+            box-shadow: 0 50px 150px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            z-index: 32;
+        }
+         
+        .ending-screen.active {
+            display: block;
+            animation: endingFadeIn 1s ease-out;
+        }
+         
+        @keyframes endingFadeIn {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+         
+        .ending-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            background: linear-gradient(45deg, #ff6b9d, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+         
+        .ending-message {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+         
+        .home-btn, .restart-btn {
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(255,107,157,0.6);
+            transition: all 0.4s ease;
+            font-family: 'Poppins', sans-serif;
+            margin: 0 1rem;
+        }
+         
+        .home-btn:hover, .restart-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(168,230,207,0.7);
+        }
+         
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: clamp(50px, 8vw, 70px);
+            height: clamp(50px, 8vw, 70px);
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            color: white;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
+            z-index: 30;
+        }
+         
+        .nav-arrow:hover {
+            transform: translateY(-50%) scale(1.2);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+        }
+         
+        .prev-arrow { left: 2rem; }
+        .next-arrow { right: 2rem; }
+         
+        .close-gallery {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: clamp(40px, 6vw, 50px);
+            height: clamp(40px, 6vw, 50px);
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #a8e6cf);
+            color: white;
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 40px rgba(255,107,157,0.4);
+            transition: all 0.3s ease;
+            z-index: 30;
+        }
+         
+        @media (max-width: 768px) {
+            .photo-gallery { padding-top: 70px; }
+            .progress-bar { top: 75px; }
+            .music-toggle { top: 75px; right: 1.5rem; width: 55px; height: 55px; }
+            .gallery-container { max-height: calc(95vh - 80px); }
+            .prev-arrow { left: 1rem; }
+            .next-arrow { right: 1rem; }
+            .close-gallery { top: 1rem; right: 1rem; }
+            .personal-message { padding: 2rem; margin-bottom: 2rem; max-height: 60vh; }
+            .photo-description { padding: 2rem 1.8rem; max-height: 40vh; }
+            .photo-image-section { min-height: 200px; }
+        }
+         
+        @media (max-width: 480px) {
+            .photo-description { padding: 1.8rem 1.5rem; }
+            .photo-description-text { font-size: 1rem; line-height: 1.65; }
+            .music-toggle { right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="til i met you.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- WELCOME MUSIC SCREEN WITH ENHANCEMENTS -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <!-- Floating Emojis -->
+        <div class="welcome-particles" id="welcomeParticles"></div>
+        <!-- Subtle Fireworks -->
+        <div class="welcome-fireworks" id="welcomeFireworks"></div>
+        
+        <div class="welcome-music-note">🎵</div>     
+        <button class="play-music-btn" id="playMusicBtn">▶ PLAY MUSIC & START</button>
+    </div>
+   
+    <!-- Music Control -->
+    <button class="music-toggle" id="musicToggle" title="Toggle Music">🎵</button>
+   
+    <!-- Floating Hearts & Flowers -->
+    <div class="particles" id="particles"></div>
+   
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">💕1 YEAR OF LOVE🌿</div>
+        </div>
+    </nav>
+   
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="personal-message" id="personalMessage">
+            <h2>My Dearest Nadnad,</h2>
+            <p>Hello babyyy!! wow idk where to start, I'm overwhelmed right now. Naiiyak ako na ewan hahaha sobrang mixed emotions. So let's start from LM, kasi doon talaga nag-start ang lahat. A girl who I randomly met has now become such a big part of my life and my everyday. I never imagined that one day would turn into a whole year with you. One whole year. Isang taon na ikaw yung kasama ko sa saya, sa pagod, in silence, and kahit sa mga araw na hindi ko alam kung anong mararamdaman ko.</p>
+             
+            <p>Looking back, ang dami na nating pinagdaanan mahal. Ang daming memories na kapag naalala ko, napapangiti na lang ako. Yung mga small moments na walang effort pero sobrang meaningful. The laughs that came out of nowhere, the quiet times where we didn't need to talk but still felt close. You became someone I wanted to run to when I was tired and someone I wanted to celebrate life with when things felt good. Slowly, you became my home and that's something I'll always cherish.</p>
+             
+            <p>Pero let's be real, hindi naman naging madali ang lahat. This year really tested us. We faced challenges, misunderstandings, and moments that drained us emotionally. There were days when things felt heavy, when we both felt tired and unsure and when we questioned if we could keep going. There were times I kept asking you what was wrong, even though I already had hints, even though I somehow knew. And in those moments, instead of making things lighter, I sometimes made them harder for you, and I'm really sorry for that.</p>
+             
+            <p>I'm sorry for the times I wasn't as sensitive as I should've been. Sorry for the moments I questioned you instead of understanding you. Sorry sa mga moments na mas inuna ko yung emotions ko kaysa intindihin yung nararamdaman mo. I know I'm not perfect, and I know I hurt you in ways I didn't even realize at the time. I know we both got hurt along the way, and I know some of those wounds came from me. Pero I want you to know that I never stopped caring, and I never stopped loving you, even during the hardest days. Please know na I'm trying, and I will keep trying to be better for you, for us.</p>
+             
+            <p>Thank you mahal for staying even when it was painful. Thank you for choosing to hold on during moments that really tested us, kahit may times na mas madali sanang bumitaw. I'm really grateful for the way you stayed patient and understanding, and for how you continued to love me in your own quiet way. I see your efforts, I feel your care, and your love for me. Everything you did, even the things you don't talk about, meant so much to me. Hindi biro yung piliin ang isang tao araw-araw, and I appreciate you more than words can say.</p>
+             
+            <p>As we reach one year together, all I can think about is moving forward with you. More growth, more understanding, more healing, and more love. I know there will still be challenges ahead but I hope we continue choosing each other, even on the hard days. Palagi kitang pipiliin, baby and palagi kitang mamahalin.</p>
+             
+            <p class="your-message">Happy 1st anniversary, my love. Thank you for being my person, my safe place, my home. I love youuu palagi, now and in all always. MWAAAAAA😚🤍</p>
+        </div>
+         
+        <div class="hero" id="hero">
+            <h1>Our Journey</h1>
+            <p class="hero-subtitle">Click to see the story of us.💕</p>
+        </div>
+    </div>
+   
+    <!-- Photo Gallery -->
+    <div class="photo-gallery" id="photoGallery">
+        <div class="gallery-particles" id="galleryParticles"></div>
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="gallery-overlay"></div>
+        <div class="gallery-container" id="galleryContainer">
+            <div class="photo-content">
+                <div class="photo-image-section">
+                    <img class="photo-image" id="currentPhoto" src="" alt="Our Story" />
+                    <div class="photo-image-placeholder" id="photoPlaceholder">
+                        <div style="font-size: 3.5rem; margin-bottom: 1rem;">📸 Loading...</div>
+                        <div style="font-size: 1.1rem; opacity: 0.9;">Our beautiful memory</div>
+                    </div>
+                </div>
+                <div class="photo-description">
+                    <div class="photo-description-text" id="photoDescription">
+                        ✨ Pure love memories here!
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+        <div class="ending-screen" id="endingScreen">
+            <div class="ending-title">I hope you enjoyed reminiscing about our moments together, my love.</div>
+            <div class="ending-message">
+                From our first meet until now, every moment matters.
+            </div>
+            <button class="restart-btn" id="restartBtn">🔄 Start Journey Again</button>
+            <button class="home-btn" id="homeBtn">🏠 Back to Home</button>
+        </div>
+         
+        <button class="nav-arrow prev-arrow" id="prevBtn">‹</button>
+        <button class="nav-arrow next-arrow" id="nextBtn">›</button>
+        <button class="close-gallery" id="closeBtn">×</button>
+    </div>
+
+    <script>
+        // Love Story
+        const loveStory = [
+            { description: "So, it all started with a wave. A wave that changed everything..." },
+            { description: "Who would've thought na yung joke na 'to would turn into reality?" },
+            { description: "Eto yung medyo napikon ako, di ba pwedeng ayoko lang mag judge ng tao? walang EI agad?? hmmp." },
+            { description: "This was the time na nag deep talk us about commitment. Both of us were scared to commit pero look at us now...we're celebrating our 1st anniversary together!!" },
+            { description: "And you did, nag commit ka nga lovelove HAHAHA." },
+            { description: "Ayaw maging friend kase gusto maging girlfriend, asesss naman." },
+            { description: "Wow naman, talaga lang Shaina Rhenad ha." },
+            { description: "Oh pakk sino ka dyan, mahal? HAHAHAHAHA ayaw pala ha." },
+            { description: "Awww lakas naman ng prayers mo kay Lord oh. Tinupad nya nga talga huhu, na a-amaze pa rin ako dito." },
+            { description: "Yiieee kilig na kilig talaga ako dito like grabe ang tapang mo naman babyloveee." },
+            { description: "YES MAHAL!!" },
+            { description: "And we live happily ever after... ayy HAHAHAHA eto yung time na inip kana kase delay na yung pag confirm ng relationship natin hehe." },
+            { description: "First video call togetherrr! (yung kita talaga ang mukha)." },
+            { description: "Cute natin here mahal." },
+            { description: "Awww special sakin yung monthsary na'to kase nag-iyakan tayo dito and grabe talaga reflections natin that time." },
+            { description: "Bet ko rin yung vc na 'to natin." },
+            { description: "Yiieee celebrating our first meet." },
+            { description: "Cute babyy, buyag. Miss miss gid ako nito ba." },
+            { description: "Aackkk eto yung time na gandang-ganda ako sayo dito babylove, tas inaakit mo ako asdhjkgds." },
+            { description: "Di mo lang alam hinuhugis na kita sa piatos HAHAHAHA jk lang." },
+            { description: "Pastel, bet bet. Reflection ng personality mo." },
+            { description: "Ganyan gusto ko, sakin lang tingin." },
+            { description: "Pasado na ba maging muslim??" },
+            { description: "Our first skin care together!!" },
+            { description: "Baaa phone upgradeee" },
+            { description: "Aliw talaga to very unexpected yung pagpapakilala HAHAHAHA" },
+            { description: "Paano yung tulog, mahal?? sarap mo i-pinchhh, buyag talaga." },
+            { description: "Thank youuu so muchh baby for the gift!! i love youuu." },
+            { description: "Kakiligg naman oyy." },
+            { description: "You look cute and adorable here mahal. I love youuu so muchh, my nadnad." }
+        ];
+         
+        let currentPhotoIndex = 0;
+        const TOTAL_PHOTOS = loveStory.length;
+        let musicPlaying = false;
+         
+        // Elements
+        const welcomeScreen = document.getElementById('welcomeScreen');
+        const playMusicBtn = document.getElementById('playMusicBtn');
+        const gallery = document.getElementById('photoGallery');
+        const navbar = document.getElementById('navbar');
+        const galleryContainer = document.getElementById('galleryContainer');
+        const currentPhoto = document.getElementById('currentPhoto');
+        const photoPlaceholder = document.getElementById('photoPlaceholder');
+        const photoDescription = document.getElementById('photoDescription');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const closeBtn = document.getElementById('closeBtn');
+        const endingScreen = document.getElementById('endingScreen');
+        const restartBtn = document.getElementById('restartBtn');
+        const homeBtn = document.getElementById('homeBtn');
+        const hero = document.getElementById('hero');
+        const progressFill = document.getElementById('progressFill');
+        const musicToggle = document.getElementById('musicToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const galleryParticles = document.getElementById('galleryParticles');
+        const welcomeParticles = document.getElementById('welcomeParticles');
+        const welcomeFireworks = document.getElementById('welcomeFireworks');
+         
+        // MUSIC SETUP
+        backgroundMusic.volume = 0.3;
+         
+        // Welcome Screen Animations
+        const welcomeEmojis = ['💕', '🌸', '🌺', '🌼', '💖', '✨', '🌟', '💫', '🌈', '🎵'];
+        function createWelcomeParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'welcome-particle';
+            particle.innerHTML = welcomeEmojis[Math.floor(Math.random() * welcomeEmojis.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 20) + 's';
+            welcomeParticles.appendChild(particle);
+            setTimeout(() => particle.remove(), 30000);
+        }
+         
+        const fireworkColors = ['#ffd700', '#ff6b9d', '#a8e6cf', '#fecfef', '#b8f2e6'];
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * 100 + '%';
+            firework.style.top = Math.random() * 100 + '%';
+            firework.style.animationDelay = Math.random() * 3 + 's';
+            firework.style.background = `radial-gradient(circle, ${fireworkColors[Math.floor(Math.random() * fireworkColors.length)]}, #ff6b9d, #a8e6cf)`;
+            welcomeFireworks.appendChild(firework);
+            setTimeout(() => firework.remove(), 7000);
+        }
+         
+        // Start welcome animations
+        setInterval(createWelcomeParticle, 2000);
+        setInterval(createFirework, 5000);
+         
+        // Welcome Screen - START MUSIC
+        playMusicBtn.addEventListener('click', () => {
+            musicPlaying = true;
+            backgroundMusic.play();
+            welcomeScreen.classList.add('hidden');
+            musicToggle.classList.remove('paused');
+        });
+         
+        // Music toggle
+        musicToggle.addEventListener('click', () => {
+            musicPlaying = !musicPlaying;
+            if (musicPlaying) {
+                backgroundMusic.play();
+                musicToggle.classList.remove('paused');
+            } else {
+                backgroundMusic.pause();
+                musicToggle.classList.add('paused');
+            }
+        });
+         
+        // Open Gallery
+        hero.addEventListener('click', () => {
+            if (!musicPlaying) {
+                alert('Please start the music first! 🎵');
+                return;
+            }
+            currentPhotoIndex = 0;
+            showPhoto(currentPhotoIndex);
+            gallery.classList.add('active');
+            navbar.classList.add('gallery-open');
+            document.body.style.overflow = 'hidden';
+            endingScreen.classList.remove('active');
+            backgroundMusic.volume = 0.4;
+            startGalleryParticles();
+        });
+         
+        // Gallery Particles
+        const galleryElements = ['💕', '🌸', '🌺', '🌼'];
+        function createGalleryParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'gallery-particle';
+            particle.innerHTML = galleryElements[Math.floor(Math.random() * galleryElements.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 8 + 10) + 's';
+            galleryParticles.appendChild(particle);
+            setTimeout(() => particle.remove(), 18000);
+        }
+         
+        function startGalleryParticles() {
+            setInterval(createGalleryParticle, 800);
+        }
+         
+        // Navigation
+        nextBtn.addEventListener('click', () => {
+            if (currentPhotoIndex < TOTAL_PHOTOS - 1) {
+                currentPhotoIndex++;
+                showPhoto(currentPhotoIndex);
+            } else {
+                showEnding();
+            }
+        });
+         
+        prevBtn.addEventListener('click', () => {
+            currentPhotoIndex = (currentPhotoIndex - 1 + TOTAL_PHOTOS) % TOTAL_PHOTOS;
+            showPhoto(currentPhotoIndex);
+            endingScreen.classList.remove('active');
+        });
+         
+        homeBtn.addEventListener('click', () => {
+            closeGallery();
+        });
+         
+        restartBtn.addEventListener('click', () => {
+            currentPhotoIndex = 0;
+            showPhoto(0);
+            endingScreen.classList.remove('active');
+        });
+         
+        document.addEventListener('keydown', (e) => {
+            if (gallery.classList.contains('active')) {
+                if (e.key === 'ArrowRight' || e.key === ' ') nextBtn.click();
+                else if (e.key === 'ArrowLeft') prevBtn.click();
+                else if (e.key === 'Escape') closeGallery();
+                else if (e.key === 'Home') homeBtn.click();
+            }
+        });
+         
+        function closeGallery() {
+            gallery.classList.remove('active');
+            navbar.classList.remove('gallery-open');
+            endingScreen.classList.remove('active');
+            document.body.style.overflow = '';
+            backgroundMusic.volume = 0.3;
+            galleryParticles.innerHTML = '';
+        }
+         
+        closeBtn.addEventListener('click', closeGallery);
+        gallery.addEventListener('click', (e) => {
+            if (e.target === gallery) closeGallery();
+        });
+         
+        function showPhoto(index) {
+            const story = loveStory[index];
+            photoDescription.innerHTML = story.description.replace(/\n/g, '<br>');
+             
+            currentPhoto.style.display = 'none';
+            photoPlaceholder.style.display = 'flex';
+            photoPlaceholder.innerHTML = `
+                <div style="font-size: 3.5rem; margin-bottom: 1rem;">💕</div>
+                <div style="font-size: 1.1rem; opacity: 0.9;">Loading our memory...</div>
+            `;
+             
+            const img = new Image();
+            img.onload = () => {
+                currentPhoto.src = `p${index + 1}.jpg`;
+                currentPhoto.style.display = 'block';
+                photoPlaceholder.style.display = 'none';
+            };
+            img.onerror = () => {
+                photoPlaceholder.innerHTML = `
+                    <div style="font-size: 3.5rem; margin-bottom: 1rem;">💕</div>
+                    <div style="font-size: 1.1rem; opacity: 0.9;">Our beautiful memory</div>
+                `;
+            };
+            img.src = `p${index + 1}.jpg`;
+             
+            const progress = ((index + 1) / TOTAL_PHOTOS) * 100;
+            progressFill.style.width = progress + '%';
+            photoDescription.scrollTop = 0;
+        }
+         
+        function showEnding() {
+            endingScreen.classList.add('active');
+        }
+         
+        // Floating particles for main page
+        const elements = ['💕', '🌸', '🌺', '🌼', '💖'];
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            document.getElementById('particles').appendChild(particle);
+            setTimeout(() => particle.remove(), 20000);
+        }
+        setInterval(createParticle, 1500);
+    </script>
+</body>
+</html>
